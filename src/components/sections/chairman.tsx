@@ -12,7 +12,7 @@ export function Chairman() {
           <div className="mx-auto w-full max-w-[320px]">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background">
               <Image
-                src="/team/manimaran.jpg"
+                src="/team/manimaran.png"
                 alt="Manimaran, Chairman of e7Intelligence"
                 fill
                 sizes="(min-width: 1024px) 320px, 100vw"
