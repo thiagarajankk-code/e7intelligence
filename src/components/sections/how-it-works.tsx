@@ -1,4 +1,7 @@
 import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal } from "@/components/motion/reveal";
+import { StepRail } from "@/components/motion/step-rail";
 
 const steps = [
   {
@@ -25,20 +28,30 @@ export function HowItWorks() {
       className="scroll-mt-16 border-b border-border py-24"
     >
       <Container>
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            How it works
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            A simple path from idea to something running in production.
-          </p>
-        </div>
-        <ol className="mt-14 grid gap-8 sm:grid-cols-3">
-          {steps.map((s) => (
-            <li key={s.n} className="rounded-2xl border border-border p-8">
-              <span className="font-mono text-sm text-muted">{s.n}</span>
-              <h3 className="mt-4 text-lg font-medium">{s.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{s.body}</p>
+        <SectionHeading eyebrow="03 / Process" title="How it works">
+          A simple path from idea to something running in production.
+        </SectionHeading>
+        <ol className="relative mt-14 grid gap-8 sm:grid-cols-3 sm:pt-10">
+          <StepRail />
+          {steps.map((s, i) => (
+            <li key={s.n} className="relative">
+              {/* Node where the step hangs off the rail */}
+              <span
+                aria-hidden
+                className="absolute -top-10 left-8 hidden h-10 w-px bg-line sm:block"
+              >
+                <span className="absolute -left-1 -top-1 h-2 w-2 rounded-full bg-brand" />
+              </span>
+              <Reveal
+                delay={i * 0.12}
+                className="h-full rounded-2xl border border-border bg-background p-8"
+              >
+                <span className="font-mono text-sm text-brand">{s.n}</span>
+                <h3 className="mt-4 font-display text-lg font-medium">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{s.body}</p>
+              </Reveal>
             </li>
           ))}
         </ol>

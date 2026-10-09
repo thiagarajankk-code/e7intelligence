@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/motion/reveal";
 
 export function Chairman() {
   return (
@@ -9,7 +10,7 @@ export function Chairman() {
     >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-16">
-          <div className="mx-auto w-full max-w-[320px]">
+          <Reveal className="mx-auto w-full max-w-[320px]">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background">
               <Image
                 src="/team/manimaran.png"
@@ -20,13 +21,13 @@ export function Chairman() {
                 priority
               />
             </div>
-          </div>
+          </Reveal>
 
-          <div>
-            <p className="text-sm font-medium text-brand">
+          <Reveal delay={0.15}>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
               Chairman&apos;s message
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               A note from Manimaran
             </h2>
             <blockquote className="mt-6 space-y-4 text-lg leading-8 text-muted">
@@ -47,7 +48,7 @@ export function Chairman() {
                 Chairman, e7Intelligence
               </span>
             </p>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
